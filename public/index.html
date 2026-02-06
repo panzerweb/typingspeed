@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed</title>
+    
+    <!-- TailwindCSS link -->
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Colors for each characters -->
+    <style>
+        .correct {
+            color: #facc15; /* yellow */
+        }
+
+        .wrong {
+            color: #ef4444; /* red */
+        }
+
+        .pending {
+            color: #9ca3af; /* gray */
+        }
+    </style>
+</head>
+<body>
+    <main class="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 space-y-6">
+
+            <!-- Header / Reference Text -->
+            <div class="text-center space-y-2">
+                <div class="flex justify-between">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-4">
+                        Speedboard
+                    </h1>
+                    
+                    <!-- Timer -->
+                    <span id="timer-span" class="p-4 bg-yellow-300 border-2 border-gray-950 text-2xl font-bold rounded-xl">
+                        
+                    </span>
+                </div>
+
+                <div class="flex flex-col my-2">
+                    <div class="flex justify-start mb-2">
+                        <button
+                            disabled
+                            class="bg-green-400 disabled:bg-gray-600 py-2 px-4 rounded-lg font-semibold text-gray-100 hover:bg-green-600 cursor-pointer" 
+                            type="button"
+                            id="next-text-btn"
+                        >
+                            Next Words
+                        </button>
+                    </div>
+                    <div>
+                        <p
+                            id="text_reference"
+                            class="text-gray-400 bg-gray-950 border rounded-lg p-4 text-lg wrap-normal leading-relaxed"
+                        >
+                            <!-- reference text goes here -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input & Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input
+                    type="text"
+                    name="text_input"
+                    id="text_input"
+                    placeholder="Start typing here..."
+                    class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-red-400"
+                />
+
+                <button
+                    type="button"
+                    id="start_button"
+                    class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                >
+                    Start Test
+                </button>
+
+                <button
+                    type="button"
+                    id="restart_button"
+                    class="px-5 py-2 cursor-pointer bg-green-400 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    Restart
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div
+            class="stats_wrapper grid grid-cols-1 sm:grid-cols-3 gap-4 text-center"
+            >
+                <!-- Example stat card -->
+                <!--
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-sm text-gray-500">WPM</p>
+                    <p class="text-2xl font-semibold">0</p>
+                </div>
+                -->
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="../dist/main.js"></script>
+</body>
+</html>

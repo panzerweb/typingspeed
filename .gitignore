@@ -1,0 +1,48 @@
+# Node.js and npm
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+yarn.lock
+package-lock.json
+
+# Build output
+dist/
+lib/
+esm/
+build/
+*.tsbuildinfo
+
+# Testing and coverage
+coverage/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+*.nyc_output
+
+# Tool caches
+.eslintcache
+.parcel-cache/
+.rpt2_cache/
+.ts-node-cache/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Temporary and log files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.d.ts   
