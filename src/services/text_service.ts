@@ -21,8 +21,10 @@ export function setTimeByTypingSpeed(speedType: string):number{
     }
 }
 
-export function loadNewText(elements: DomLoadedData):void{
-    elements.currentText = getRandomElement(elements.data) as TextData;
+export function loadNewText(elements: DomLoadedData, difficulty: string = "easy"):void{
+    let filteredTextByDifficulty = elements.data.filter((element) => element.difficulty == difficulty);
+
+    elements.currentText = getRandomElement(filteredTextByDifficulty) as TextData;
 
     elements.text = elements.currentText.content;
     elements.initialSeconds = setTimeByTypingSpeed(elements.currentText.typingSpeed);

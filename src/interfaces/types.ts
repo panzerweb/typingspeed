@@ -12,6 +12,7 @@ export type TextData = {
     content: string;
     type: string;
     typingSpeed: string;
+    difficulty: string;
 };
 
 export type DomLoadedData = {

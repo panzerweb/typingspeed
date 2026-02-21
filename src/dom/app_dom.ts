@@ -15,6 +15,7 @@ const startButton = document.getElementById("start_button") as HTMLButtonElement
 const restartButton = document.getElementById("restart_button") as HTMLButtonElement;
 const timerSpan = document.getElementById("timer-span") as HTMLSpanElement;
 const nextTextBtn = document.getElementById("next-text-btn") as HTMLButtonElement;
+const difficultyOption = document.getElementById("difficulty_options") as HTMLSelectElement;
 
 const timer:TimerClass = new TimerClass(0);
 
@@ -45,9 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
     loadNewText(domData);
 });
 
+difficultyOption.addEventListener("change", () => {
+    const difficulty = difficultyOption.value;
+
+    loadNewText(domData, difficulty);
+})
 
 nextTextBtn.addEventListener('click', () => {
-    loadNewText(domData);
+    const difficulty = difficultyOption.value;
+
+    loadNewText(domData, difficulty);
 })
 
 
