@@ -128,4 +128,11 @@ export const data: TextData[] = [
     typingSpeed: "fast",
     difficulty: "easy",
   },
+  {
+    id: 17,
+    content: "Current Main Text",
+    type: "short_text",
+    typingSpeed: "fast",
+    difficulty: "easy",
+  },
 ];
