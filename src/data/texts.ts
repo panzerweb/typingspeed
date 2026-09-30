@@ -130,7 +130,7 @@ export const data: TextData[] = [
   },
   {
     id: 17,
-    content: "Branch B Code Change here.",
+    content: "New Branch B code change",
     type: "short_text",
     typingSpeed: "fast",
     difficulty: "easy",
