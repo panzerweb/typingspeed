@@ -5,6 +5,7 @@ export type TypingStats = {
     accuracy: number,
     errors: number,
     time: number,
+    date: string | undefined,
 };
 
 export type TextData = {

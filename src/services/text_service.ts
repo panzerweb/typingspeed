@@ -1,6 +1,14 @@
-import { TimerClass } from "../classes/timer_class.js";
 import { displayContent } from "../dom/display_content.js";
 import type { DomLoadedData, TextData } from "../interfaces/types.js";
+
+const date = new Date();
+const formatter = new Intl.DateTimeFormat('en-US', { 
+  month: 'long', 
+  day: 'numeric', 
+  year: 'numeric' 
+});
+
+let currentDateNow = formatter.format(date)
 
 export function getRandomElement<T>(array: T[]):T | undefined {
     if (array.length === 0) return undefined;
@@ -21,8 +29,8 @@ export function setTimeByTypingSpeed(speedType: string):number{
     }
 }
 
-export function loadNewText(elements: DomLoadedData, difficulty: string = "easy"):void{
-    let filteredTextByDifficulty = elements.data.filter((element) => element.difficulty == difficulty);
+export function loadNewText(elements: DomLoadedData, difficulty: string = "easy", currentDate: string = currentDateNow):void{
+    let filteredTextByDifficulty: TextData[] = elements.data.filter((element) => element.difficulty == difficulty);
 
     elements.currentText = getRandomElement(filteredTextByDifficulty) as TextData;
 
@@ -40,6 +48,7 @@ export function loadNewText(elements: DomLoadedData, difficulty: string = "easy"
         accuracy: 0,
         errors: 0,
         time: 0,
+        date: currentDate,
     };
 
     displayContent(elements.stats);
