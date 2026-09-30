@@ -6,6 +6,12 @@ import { renderTextReference } from "./render_text_reference.js";
 import { data } from "../data/texts.js";
 import { loadNewText } from "../services/text_service.js";
 
+/*
+
+    The main application file
+
+*/
+
 let domData!: DomLoadedData;
 
 // HTML Elements
@@ -19,6 +25,10 @@ const difficultyOption = document.getElementById("difficulty_options") as HTMLSe
 
 const timer:TimerClass = new TimerClass(0);
 
+// Variable to store the stats
+let statsArray = [];
+
+// Initializes everything the app needed
 document.addEventListener("DOMContentLoaded", () => {
     domData = {
         data,
@@ -36,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             accuracy: 0,
             errors: 0,
             time: 0,
+            date: ''
         },
 
         startButton,
@@ -44,7 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     loadNewText(domData);
+    console.log(domData.stats)
 });
+
+// Functions
 
 difficultyOption.addEventListener("change", () => {
     const difficulty = difficultyOption.value;
@@ -75,6 +89,10 @@ startButton.addEventListener('click', () => {
 
         domData.stats = TypingService(domData.text, inputField.value, timer);
         displayContent(domData.stats);
+
+        statsArray.push(domData.stats)
+        
+        // localStorage.setItem(`typing_score`, JSON.stringify(statsArray))
     });
 
 });
@@ -82,6 +100,7 @@ startButton.addEventListener('click', () => {
 inputField.addEventListener('input', () => {
     domData.stats = TypingService(domData.text, inputField.value, timer);
 
+    // To render the stats in the UI
     renderTextReference(
         textReference,
         domData.text,

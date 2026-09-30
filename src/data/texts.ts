@@ -1,5 +1,11 @@
 import type { TextData } from "../interfaces/types.js";
 
+/*
+  These are the list of data needed for this project.
+  Add fields if you want but check the TextData[] type to be
+  consistent.
+*/
+
 export const data: TextData[] = [
   {
     id: 1,
