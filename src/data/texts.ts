@@ -123,7 +123,7 @@ export const data: TextData[] = [
   },
   {
     id: 16,
-    content: "Sample text for IT415 Merge Conflict Assignment",
+    content: "Line of code change here for Branch B. See a merge conflict.",
     type: "short_text",
     typingSpeed: "fast",
     difficulty: "easy",
